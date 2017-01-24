@@ -98,7 +98,8 @@
                     featured: "Created for CSE 332 - Introduction to Scientific Visualization.",
                     info: "This dashboard is a compilation of interactive graphs and charts designed to visualize Pok&eacute;mon video game statistics. Users can filter data points on one graph and have the corresponding data point highlighted in all other visualizations.",
                     tools: "Created using hand-written HTML, CSS, Python, and D3.js.",
-                    image: "Pokeball.png"
+                    image: "Pokeball.png",
+                    link: "../../Pokemon/Pages/dashboard.html"
                 },
 
                 HighCs = {
@@ -144,6 +145,10 @@
                     $("<div></div>").addClass("info").html(card.info).appendTo(content);
 
                     $("<div></div>").addClass("tools").html(card.tools).appendTo(content);
+
+                    if (card.link) {
+                            $(cardDiv).find(".sectionName").replaceWith("<a class='sectionName' target='_blank' href='" + card.link + "'>" + card.sectionName + "<a>")
+                    }
                 }
             });
         </script>
