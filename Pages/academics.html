@@ -1,0 +1,227 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../Styles/styles.css" />
+        <script src="../Scripts/jquery-3.1.0.min.js"></script>
+        <script src="../Scripts/base.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+
+        <style type="text/css">
+            #content {
+                text-align: center;
+            }
+
+            #resume {
+                width: 900px;
+                margin: 0 auto;
+            }
+
+            .resumeCard {
+                border: 1px solid #aaa;
+                min-height: 100px;
+                border-radius: 10px;
+                text-align: left;
+                padding: 10px;
+                color: #333;
+                margin-top: 10px;
+            }
+
+            .resumeItem {
+                margin-top: 5px;
+            }
+
+            .sectionName {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .resumeItem {
+                display: block;
+                font-size: 15px;
+            }
+
+            .itemDate {
+                width: 150px;
+                display: inline-block;
+                float: left;
+            }
+
+            .itemLocation {
+                display: inline-block;
+                float: right;
+            }
+
+            .itemContent {
+                width: 600px;
+                display: inline-block;
+            }
+
+            ul {
+                margin: 0;
+            }
+        </style>
+
+        <script type="text/javascript">
+
+            var resume = [
+
+                Education = {
+                    sectionName: "Education",
+                    items: [
+                        StonyBrook = {
+                            date: "Aug. 2013 - Present",
+                            heading: "College of Engineering and Applied Sciences",
+                            subHeading: "Stony Brook University, May 2017<br />Bachelor of Science, Computer Science specializing in Human-Computer Interaction",
+                            bullets: [
+                                "GPA: 3.61. Dean's List, 5 semesters. Golden Key International Honour Society."
+                            ],
+                            location: "Stony Brook, NY"
+                        }
+                    ]
+                },
+
+                Publications = {
+                    sectionName: "Publications",
+                    items: [
+                        MyTempo = {
+                            subHeading : 'Romero, Y; Cuadrado, B. "MyTempo: Musical conducting simulation and its role in music therapy." <i>Stony Brook Young Investigators review</i>. Submitted.',
+                        },
+                    ]
+                },
+
+                Research = {
+                    sectionName: "Research Experience",
+                    items: [
+                        MyTempo = {
+                            date: "Jan. 2016 - Present",
+                            heading: "Undergraduate Researcher",
+                            subHeading: "Stony Brook University, Department of Computer Science, Multimedia Lab",
+                            location: "Stony Brook, NY",
+                            bullets: [
+                                "Created, designed, and implemented interactive musical conducting simulator",
+                                "Collected data from field tests with subjects ranging in age and experience"
+                            ]
+                        },
+                        Linguistics = {
+                            date: "Jan. 2015 - May 2015",
+                            heading: "Undergraduate Research Assistant",
+                            subHeading: "Stony Brook University, Department of Psychology",
+                            location: "Stony Brook, NY",
+                            bullets: [
+                                "Assisted studies pertaining to Linguistics and Human-Computer Interaction",
+                                "Coded research based on previous linguistic studies to draw retroactive conclusions"
+                            ]
+                        }
+                    ]
+                },
+
+                Teaching = {
+                    sectionName: "Teaching Experience",
+                    items: [
+                        MyTempo = {
+                            date: "Aug. 2016 - Present",
+                            heading: "Peer Assistant Leader",
+                            subHeading: "SCH 488 - University Scholars Internship",
+                            location: "Stony Brook, NY",
+                            bullets: [
+                                "Mentored first-year Computer Science students within University Scholars Program",
+                                "Offered guidance toward material taught in first-year Computer Science courses"
+                            ]
+                        },
+                        Linguistics = {
+                            date: "Jan. 2014 - Dec. 2014",
+                            heading: "University Scholars Fellow",
+                            subHeading: "SCH 275 - Undergraduate College Fellows Seminar",
+                            location: "Stony Brook, NY",
+                            bullets: [
+                                "Teaching assistant for first-year undergraduate seminar course",
+                                "Created lesson plans designed for integration of university scholars members"
+                            ]
+                        }
+                    ]
+                },
+
+                Courses = {
+                    sectionName: "Notable Courses",
+                    items: [
+                        Courses = {
+                            bullets: [
+                                "CSE 320 - System Fundamentals II",
+                                "CSE 323 - Human-Computer Interaction",
+                                "CSE 333 - User Interface Development",
+                                "CSE 305 - Principles of Database Systems",
+                                "CSE 373 - Analysis of Algorithms",
+                                "PSY 368 - Sensation and Perception"
+                            ]
+                        }
+                    ]
+                },
+
+                
+            ];
+
+            $(function() {
+
+                for (var i = 0; i < resume.length; i++) {
+                    var card = resume[i];
+
+                    var cardDiv = $("<div></div>").appendTo("#resume").addClass("resumeCard");
+                    $("<div></div>").addClass("sectionName").text(card.sectionName).appendTo(cardDiv);
+
+                    for(var j = 0; j < card.items.length; j++) {
+                        var item = card.items[j];
+                        var itemDiv = $("<div></div>").addClass("resumeItem").appendTo(cardDiv);
+
+                        if (item.date) {
+                            $("<div></div>").addClass("itemDate").text(item.date).appendTo(itemDiv);
+                        }
+                        else {
+                            $("<div></div>").addClass("itemDate").html("<br />").appendTo(itemDiv);
+                        }
+
+                        var itemContent = $("<div></div>").addClass("itemContent").appendTo(itemDiv);
+
+                        if (item.heading) {
+                            $("<strong></strong>").text(item.heading).appendTo(itemContent);
+
+                            $("<br />").appendTo(itemContent);
+                        }
+
+                        if (item.subHeading) {
+                            $(itemContent).append(item.subHeading);
+                            $("<br />").appendTo(itemContent);
+                        }
+
+                        if (item.bullets) {
+                            var list = $("<ul></ul>").appendTo(itemContent);
+
+                            for(var k = 0; k < item.bullets.length; k++) {
+                                var bullet = item.bullets[k];
+
+                                $("<li></li>").appendTo(list).text(bullet);
+                            }
+                        }
+
+                        $("<div></div>").appendTo(itemDiv).addClass("itemLocation").text(item.location);
+                    }
+                }
+            });
+        </script>
+
+    </head>
+    <body>
+        <div id="card">
+        </div>
+
+        <div id="header"></div>
+
+        <div id="content">
+            <div id="resume">
+                <div class="title">Academics</div>
+                <hr style="width: 80%;" />
+
+            </div>
+        </div>
+
+        <div id="footer"></div>
+    </body>
+</html>

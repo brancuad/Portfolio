@@ -1,0 +1,168 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../Styles/styles.css" />
+        <script src="../Scripts/jquery-3.1.0.min.js"></script>
+        <script src="../Scripts/base.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+
+        <style type="text/css">
+            #content {
+                text-align: center;
+            }
+
+            #resume {
+                width: 900px;
+                margin: 0 auto;
+            }
+
+            .resumeCard {
+                border: 1px solid #aaa;
+                min-height: 100px;
+                border-radius: 10px;
+                text-align: left;
+                padding: 10px;
+                color: #333;
+                margin-top: 10px;
+                overflow: auto;
+            }
+
+            .resumeItem {
+                margin-top: 5px;
+            }
+
+            .sectionName {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .resumeItem {
+                display: block;
+                font-size: 15px;
+            }
+
+            .itemDate {
+                width: 150px;
+                display: inline-block;
+                float: left;
+            }
+
+            .itemLocation {
+                display: inline-block;
+                float: right;
+            }
+
+            .itemContent {
+                width: 600px;
+                display: inline-block;
+            }
+
+            .itemContent div {
+                margin-top: 15px;
+            }
+
+            .resumeImage {
+                width: 200px;
+                height: 200px;
+                border: 1px solid #aaa;
+                border-radius: 10px;
+                float:right;
+            }
+
+            ul {
+                margin: 0;
+            }
+        </style>
+
+        <script type="text/javascript">
+
+            var resume = [
+
+                MyTempo = {
+                    sectionName: "MyTempo - Musical Conducting Simulator",
+                    featured: "Featured at the Stony Brook 2016 Undergraduate Research Celebration and the 2016 Eastern Long Island Maker Faire.",
+                    info: "MyTempo is a product designed to teach its users about the proper forms of conducting. Using technology provided by the Myo armband, users can follow a simple demo to simulate conducting a musical performance properly.",
+                    tools: "Created using Adobe Director, GIMP, and Adobe Audition.<br />Updated using Unity and JavaScript.",
+                    image: "MyTempo.png",
+                },
+
+                ID = {
+                    sectionName: "ID Swiping Script",
+                    featured: "Implemented at the Office of the Dean of Students at Stony Brook University.",
+                    info: "This software parses the output of a swipe of a Stony Brook Student ID card. This is used to collect the Name, ID Number, and contact information of students visiting the Office of the Dean of Students. Over 1,600 student visitors have been recorded for the Spring 2016 semester. Currently, this software is still in use.",
+                    tools: "Created using Google Apps Script and ID Swiping Hardware.",
+                    image: "Swipe.png"
+                },
+
+                Visualization = {
+                    sectionName: "Pok&eacute;mon Statistics Dashboard",
+                    featured: "Created for CSE 332 - Introduction to Scientific Visualization.",
+                    info: "This dashboard is a compilation of interactive graphs and charts designed to visualize Pok&eacute;mon video game statistics. Users can filter data points on one graph and have the corresponding data point highlighted in all other visualizations.",
+                    tools: "Created using hand-written HTML, CSS, Python, and D3.js.",
+                    image: "Pokeball.png"
+                },
+
+                HighCs = {
+                    sectionName: "Stony Brook High C's Website",
+                    featured: "Created for the Stony Brook High C's and CSE 333 - User Interface Development.",
+                    info: "The Stony Brook High C's is a group that performs at events both on and off of Stony Brook's campus. This website was created as a central location for group updates and information. Visitors can learn more about the group, its musical repertoire, and forms of contact.",
+                    tools: "Created using hand-written HTML, CSS, and JavaScript.",
+                    image: "HighCs.png"
+                },
+
+                Origami = {
+                    sectionName: "Origami In Flight",
+                    featured: "Created for CSE 334 - Introduction to Multimedia Systems.",
+                    info: "Origami in Flight is an animation that depicts an origami egg that hatches into an origami crane. The audience joins the crane through a 1st and 3rd person view of its flight around a simple living room. All assets in this animation are custom made.",
+                    tools: "Created using Blender, GIMP, and Audacity.",
+                    image: "Origami.png"
+                },
+
+                Wolfieball = {
+                    sectionName: "Wolfieball Draft Kit",
+                    featured: "Created for CSE 219 - Computer Science III.",
+                    info: "Wolfieball Draft Kit is a fantasy baseball draft simulator designed to automate the division of players into custom-made teams. Users are able to create their own teams or have the software automatically select players for them.",
+                    tools: "Created using Java, HTML, and JavaFX.",
+                    image: "Wolfieball.png"
+                },
+
+            ];
+
+            $(function() {
+                for (var i = 0; i < resume.length; i++) {
+                    var card = resume[i];
+
+                    var cardDiv = $("<div></div>").appendTo("#resume").addClass("resumeCard");
+
+                    $("<img />").addClass("resumeImage").attr("src", "../Images/Projects/" + card.image).appendTo(cardDiv);
+
+                    $("<div></div>").addClass("sectionName").html(card.sectionName).appendTo(cardDiv);
+
+                    var content = $("<div></div>").addClass("itemContent").appendTo(cardDiv);
+
+                    $("<div></div>").addClass("featured").html(card.featured).appendTo(content);
+
+                    $("<div></div>").addClass("info").html(card.info).appendTo(content);
+
+                    $("<div></div>").addClass("tools").html(card.tools).appendTo(content);
+                }
+            });
+        </script>
+
+    </head>
+    <body>
+        <div id="card">
+        </div>
+
+        <div id="header"></div>
+
+        <div id="content">
+            <div id="resume">
+                <div class="title">Projects</div>
+                <hr style="width: 80%;" />
+
+            </div>
+        </div>
+
+        <div id="footer"></div>
+    </body>
+</html>

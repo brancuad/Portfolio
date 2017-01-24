@@ -1,0 +1,256 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../Styles/styles.css" />
+        <script src="../Scripts/jquery-3.1.0.min.js"></script>
+        <script src="../Scripts/base.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+
+        <style type="text/css">
+
+            #content {
+                text-align: center;
+            }
+
+            #resume {
+                width: 900px;
+                margin: 0 auto;
+            }
+
+            .resumeCard {
+                border: 1px solid #aaa;
+                min-height: 100px;
+                border-radius: 10px;
+                text-align: left;
+                padding: 10px;
+                color: #333;
+                margin-top: 10px;
+            }
+
+            .resumeItem {
+                margin-top: 5px;
+            }
+
+            .sectionName {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .resumeItem {
+                display: block;
+                font-size: 15px;
+            }
+
+            .itemDate {
+                width: 150px;
+                display: inline-block;
+                float: left;
+            }
+
+            .itemLocation {
+                display: inline-block;
+                float: right;
+            }
+
+            .itemContent {
+                width: 600px;
+                display: inline-block;
+            }
+
+            ul {
+                margin: 0;
+            }
+
+        </style>
+
+        <script type="text/javascript">
+            var resume = [
+
+                Education = {
+                    sectionName: "Education",
+                    items: [
+                        StonyBrook = {
+                            date: "Aug. 2013 - Present",
+                            heading: "College of Engineering and Applied Sciences",
+                            subHeading: "Stony Brook University, May 2017<br />Bachelor of Science, Computer Science specializing in Human-Computer Interaction",
+                            bullets: [
+                                "GPA: 3.61. Dean's List, 5 semesters. Golden Key International Honour Society."
+                            ],
+                            location: "Stony Brook, NY"
+                        }
+                    ]
+                },
+
+                WorkExperience = {
+                    sectionName: "Work Experience",
+                    items: [
+                        Eduware = {
+                            date: "Mar. 2016 - Present",
+                            heading: "Eduware Inc.",
+                            subHeading: "Web Developer",
+                            bullets: [
+                                "Developed protocols for use by peers to increase extensibility of product features",
+                                "Created product support tools to streamline customer-employee communication",
+                                "Developed web-bsed product features using Microsoft Visual C# and JavaScript"
+                            ],
+                            location: "St. James, NY"
+                        },
+                        DOS = {
+                            date: "Aug. 2015 - May 2016",
+                            heading: "Office of the Dean of Students",
+                            subHeading: "Student Staff Assistant",
+                            bullets: [
+                                "Created and maintained ID swiping software to manage over 100 visitors per week",
+                                "Used custom scripted software to record trends in visits of over 1500 visitors"
+                            ],
+                            location: "Stony Brook, NY"
+                        },
+                        Orientation = {
+                            date: "May 2015 - Jan. 2016",
+                            heading: "Student Orientation and Family Programs",
+                            subHeading: "Orientation Leader",
+                            bullets: [
+                                "Prepared computers, iPads, printers, and copiers for each orientation day",
+                                "Lead over 2,000 Engineering and Science students through summer orientation"
+                            ],
+                            location: "Stony Brook, NY"
+                        },
+                    ],
+                },
+
+                Projects = {
+                    sectionName: "Projects",
+                    items: [
+                        MyTempo = {
+                            heading: "MyTempo - Musical Conducting Simulator",
+                            bullets: [
+                                "Featured at Stony Brook University's 2016 Undergraduate Research Celebration",
+                                "To be published in Fall 2016 edition of the Stony Brook Young Investigators Review",
+                                "User Interface assets designed in GIMP and implemented in Adobe Director",
+                                "Conducted scholarly research and interviewed end users to inspire design"
+                            ],
+                        },
+                        ID = {
+                            heading: "ID Swiping Script",
+                            bullets: [
+                                "Updated visitor check-in at the Office of the Dean of Students of Stony Brook",
+                                "Software used to manage over 1600 student visitors in the Spring 2016 Semester",
+                                "ID swipes parsed using Google Apps Script and ID Swiping Hardware"
+                            ]
+                        }
+                    ]
+                },
+
+                LeadershipExperience = {
+                    sectionName: "Leadership Experience",
+                    items: [
+                        HighCs = {
+                            date: "Sept. 2013 - Present",
+                            heading: "Stony Brook High C's",
+                            subHeading: "President | Vice President | Secretary",
+                            location: "Stony Brook, NY",
+                            bullets: [
+                                "Developed and maintained Stony Brook High C's website",
+                                "Coordinated a cappella performance opportunities at on and off campus events"
+                            ]
+                        },
+                        Scholars = {
+                            date: "Aug. 2013 - Present",
+                            heading: "University Scholars Honors Program",
+                            subHeading: "Peer Assistant Leader | Academic Committee Chair | Undergraduate Intern",
+                            location: "Stony Brook, NY",
+                            bullets: [
+                                "Mentored first-year Computer Science students within the honors program",
+                                "Lead committee meetings focused on promoting academic excellence"
+                            ]
+                        }
+                    ]
+                },
+
+                Skills = {
+                    sectionName: "Skills",
+                    items: [
+                        Skills = {
+                            bullets: [
+                                "Java and JavaFX Applications",
+                                "JavaScript and Google Apps Scripting",
+                                "MIPS Assembly and C",
+                                "ASP.NET, HTML, and CSS",
+                                "Adobe Creative Cloud",
+                                "SQL and Database Management",
+                                "Microsoft Visual C#",
+                                "Web Design and Development",
+                                "Collaborative Programming",
+                                "GIMP Image Manipulation"
+                            ]
+                        }
+                    ]
+                }
+            ];
+
+            $(function() {
+                for (var i = 0; i < resume.length; i++) {
+                    var card = resume[i];
+
+                    var cardDiv = $("<div></div>").appendTo("#resume").addClass("resumeCard");
+                    $("<div></div>").addClass("sectionName").text(card.sectionName).appendTo(cardDiv);
+
+                    for(var j = 0; j < card.items.length; j++) {
+                        var item = card.items[j];
+                        var itemDiv = $("<div></div>").addClass("resumeItem").appendTo(cardDiv);
+
+                        if (item.date) {
+                            $("<div></div>").addClass("itemDate").text(item.date).appendTo(itemDiv);
+                        }
+                        else {
+                            $("<div></div>").addClass("itemDate").html("<br />").appendTo(itemDiv);
+                        }
+
+                        var itemContent = $("<div></div>").addClass("itemContent").appendTo(itemDiv);
+
+                        if (item.heading) {
+                            $("<strong></strong>").text(item.heading).appendTo(itemContent);
+
+                            $("<br />").appendTo(itemContent);
+                        }
+
+                        if (item.subHeading) {
+                            $(itemContent).append(item.subHeading);
+                            $("<br />").appendTo(itemContent);
+                        }
+
+                        if (item.bullets) {
+                            var list = $("<ul></ul>").appendTo(itemContent);
+
+                            for(var k = 0; k < item.bullets.length; k++) {
+                                var bullet = item.bullets[k];
+
+                                $("<li></li>").appendTo(list).text(bullet);
+                            }
+                        }
+
+                        $("<div></div>").appendTo(itemDiv).addClass("itemLocation").text(item.location);
+                    }
+                }
+            });
+        </script>
+
+    </head>
+    <body>
+        <div id="card">
+        </div>
+
+        <div id="header"></div>
+
+        <div id="content">
+            <div id="resume">
+                <div class="title">Resume</div>
+                <hr style="width: 80%;" />
+
+            </div>
+
+
+        </div>
+
+        <div id="footer"></div>
+    </body>
+</html>

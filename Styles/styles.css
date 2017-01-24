@@ -1,0 +1,102 @@
+body {
+	font-family: 'Fira Sans', sans-serif;
+}
+
+a {
+	color: #090;
+	text-decoration: none;
+}
+
+a:hover {
+	cursor: pointer;
+}
+
+#header {
+    margin: 20px 0;
+}
+
+#content {
+	display: none;
+}
+
+.outer {
+    display: table;
+    height: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    width: 460px;
+    height: 120px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+}
+
+#links {
+    background-color: #eee;
+    border: 1px solid #aaa;
+    border-width: 1px 0;
+    margin-top: 20px 0;
+}
+
+.op {
+    display: none;
+}
+
+
+#openingImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 250px;
+    margin: 10px;
+    float: left;
+}
+
+#openingName {
+    font-size: 32px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#openingTitle {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    width: auto;
+}
+
+#openingBlurb {
+    font-size: 18px;
+    text-align: center;
+    margin: 10px;
+    width: auto;
+}
+
+#openingLinks {
+    text-align: center;
+    font-size: 18px;
+    width: auto;
+}
+
+#openingLinks a {
+	text-align: center;
+    background-color: #eee;
+    display: inline-block;
+    padding: 10px;
+}
+
+#card {
+
+}
+
+
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+}
